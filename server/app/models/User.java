@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User extends Model {
@@ -25,6 +26,9 @@ public class User extends Model {
 
     @Column(length = 64, nullable = false)
     private byte[] shaPassword;
+
+    @OneToMany
+    public Set<FavouritesList> favouritesLists;
 
     public void setPassword(String password) {
         this.shaPassword = getSha512(password);

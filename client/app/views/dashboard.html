@@ -1,1 +1,10 @@
-<p>This is the dashboard view.</p>
+<h4>My Movies</h4>
+<div ng-hide="movies.length">
+    No movies yet.
+</div>
+<div class="panel panel-default" ng-repeat="movie in movies">
+    <div class="panel-body">
+        <a ng-href="/#/viewmovie/{{ movie.id }}">{{ movie.name }}</a> | Comments
+        <span class="badge">0</span>
+    </div>
+</div>
