@@ -38,6 +38,14 @@ angular
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
+      .when('favourite-list/create', {
+        templateUrl: 'views/newFavouriteList.html',
+        controller: 'FavListCtrl'
+      })
+      .when('favourite-list/list', {
+        templateUrl: 'views/allFavouriteLists.html',
+        controller: 'FavListCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
