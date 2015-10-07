@@ -3,17 +3,15 @@
 angular.module('clientApp')
     .controller('DashboardCtrl', function ($scope, $log, $http, alertService, $location) {
 
-        $scope.movies = [];
+        $scope.metadata = [];
 
         $scope.searchMovies = function() {
 
-            $http.get('/app/search')
+            $http.get('/app/movies/search?query=' + $scope.searchInput)
                 .success(function(data) {
-                    $scope.movies = data;
+                    $scope.metadata = data;
                 });
 
         };
-
-        $scope.searchMovies();
 
     });
