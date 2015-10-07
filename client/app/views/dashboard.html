@@ -17,11 +17,31 @@
     <div class="col-sm-6 col-md-5" ng-repeat="movie in metadata.results">
         <div class="thumbnail">
             <!-- [DRAFT] little hack... -->
-            <img src="http://image.tmdb.org/t/p/w300/{{ movie.poster_path }}?api_key=7a4de0fe5da237bdb52d1168dae8cd14" alt="[{{ movie.original_title }}]">
+            <img src="http://image.tmdb.org/t/p/w300/{{ movie.poster_path }}?api_key=7a4de0fe5da237bdb52d1168dae8cd14"
+                 alt="[{{ movie.original_title }}]">
+
             <div class="caption">
                 <h3>{{ movie.original_title }}</h3>
+
                 <p>{{ movie.overview }}</p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+
+                <p>
+
+                </p>
+            </div>
+
+            <div class="btn-group acc-button" ng-controller="FavListCtrl"
+                 ng-show="favListsSet.length">
+                <button type="button" class="btn btn-default disabled">Add to favourite list: </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                        aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a ng-repeat="favList in favListsSet"
+                           ng-click="addMovieToFavList(favList.id, movie)">{{ favList.name }}</a></li>
+                </ul>
             </div>
         </div>
     </div>

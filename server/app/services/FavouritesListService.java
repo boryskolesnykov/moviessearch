@@ -30,31 +30,54 @@ public class FavouritesListService {
                 .findUnique();
     }
 
+    public FavouritesList getDefaultFavList() {
+        return find
+                .where()
+                .eq("isDefault", true)
+                .findUnique();
+    }
+
     public List<FavouritesList> getFavListsByUser(String username) {
         return find
                 .where()
-                .eq("user.name", username)
+                .eq("user.email", username)
                 .findList();
     }
 
-    public FavouritesList createNewFavList(String name, String username) {
+    public FavouritesList createNewFavList(String name, boolean isDefault, String username) {
+
+        if (isDefault) {
+            FavouritesList defaultFavList = getDefaultFavList();
+            if (defaultFavList != null) {
+                defaultFavList.isDefault = false;
+                defaultFavList.save();
+            }
+        }
+
         FavouritesList list = new FavouritesList();
         list.name = name;
         list.user = User.findByEmail(username);
+        list.isDefault = isDefault;
 
         list.save();
 
         return list;
     }
 
-    public FavouritesList addMovieToFavList(Long favListId, Long movieId) {
-        FavouritesList list = getFavListById(favListId);
-        Movie movie = movieService.findMovieById(movieId);
+    public FavouritesList addMovieToFavList(Long favListId, Movie movie) {
 
+        movie.save();
+
+        FavouritesList list = getFavListById(favListId);
         list.movies.add(movie);
 
         list.save();
 
         return list;
+    }
+
+    public List<Movie> getAllMoviesFromFavList(long favListId) {
+        FavouritesList list = getFavListById(favListId);
+        return list.movies;
     }
 }

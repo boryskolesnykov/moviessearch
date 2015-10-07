@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import play.data.validation.Constraints;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class FavouritesList extends Model {
     public User user;
 
     @ManyToMany
-    public Set<Movie> movies;
+    public List<Movie> movies;
 
     @Column(name = "default")
     @Constraints.Required

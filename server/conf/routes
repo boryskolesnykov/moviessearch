@@ -3,35 +3,36 @@
 # ~~~~
 
 # Home page
-GET           /                                                         controllers.Application.index()
+GET           /                                                  controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET           /assets/*file                                             controllers.Assets.versioned(path="/public", file: Asset)
+GET           /assets/*file                                      controllers.Assets.versioned(path="/public", file: Asset)
 
-GET           /app/isauthenticated                                      controllers.Application.isAuthenticated()
-GET           /app/logout                                               controllers.Application.logout()
-POST          /app/signup                                               controllers.Application.signup()
-POST          /app/login                                                controllers.Application.login()
-
-
-GET           /app/favourite-lists/                                     controllers.FavouriteListController.getFavouritesLists()
-GET           /app/favourite-lists/:id                                  controllers.FavouriteListController.getFavouritesList(id: Long)
-POST          /app/favourite-lists                                      controllers.FavouriteListController.createNewFavouritesList()
-PUT           /app/favourite-lists/:id                                  controllers.FavouriteListController.updateFavouriteList(id: Long)
-PATCH         /app/favourite-lists/:id                                  controllers.FavouriteListController.patchFavouriteList(id: Long)
-DELETE        /app/favourite-lists/:id                                  controllers.FavouriteListController.deleteFavouriteList(id: Long)
-POST          /app/favourite-lists/:listId/add-movie/:movieId           controllers.FavouriteListController.addMovieToFavouriteList(listId: Long, movieId: Long)
-DELETE        /app/favourite-lists/:listId/remove-movie/:movieId        controllers.FavouriteListController.removeMovieFromFavouriteList(listId: Long, movieId: Long)
+GET           /app/isauthenticated                               controllers.Application.isAuthenticated()
+GET           /app/logout                                        controllers.Application.logout()
+POST          /app/signup                                        controllers.Application.signup()
+POST          /app/login                                         controllers.Application.login()
 
 
-GET           /app/movies/search                                        controllers.MovieController.search()
+GET           /app/favourite-lists/                              controllers.FavouriteListController.getFavouritesLists()
+GET           /app/favourite-lists/:id                           controllers.FavouriteListController.getFavouritesList(id: Long)
+POST          /app/favourite-lists                               controllers.FavouriteListController.createNewFavouritesList()
+PUT           /app/favourite-lists/:id                           controllers.FavouriteListController.updateFavouriteList(id: Long)
+PATCH         /app/favourite-lists/:id                           controllers.FavouriteListController.patchFavouriteList(id: Long)
+DELETE        /app/favourite-lists/:id                           controllers.FavouriteListController.deleteFavouriteList(id: Long)
+GET           /app/favourite-lists/:id/movie                     controllers.FavouriteListController.getAllMoviesFromFavList(id: Long)
+POST          /app/favourite-lists/:listId/movie/                controllers.FavouriteListController.addMovieToFavouriteList(listId: Long)
+DELETE        /app/favourite-lists/:listId/movie/:movieId        controllers.FavouriteListController.removeMovieFromFavouriteList(listId: Long, movieId: Long)
 
-GET           /app/movies                                               controllers.MovieController.getMovies()
-GET           /app/movies/:id                                           controllers.MovieController.getMovie(id: Long)
-POST          /app/movies                                               controllers.MovieController.createNewMovie()
-PUT           /app/movies/:id                                           controllers.MovieController.updateMovie(id: Long)
-PATCH         /app/movies/:id                                           controllers.MovieController.patchMovie(id: Long)
-DELETE        /app/movies/:id                                           controllers.MovieController.deleteMovie(id: Long)
+
+GET           /app/movies/search                                 controllers.MovieController.search()
+
+GET           /app/movies                                        controllers.MovieController.getMovies()
+GET           /app/movies/:id                                    controllers.MovieController.getMovie(id: Long)
+POST          /app/movies                                        controllers.MovieController.createNewMovie()
+PUT           /app/movies/:id                                    controllers.MovieController.updateMovie(id: Long)
+PATCH         /app/movies/:id                                    controllers.MovieController.patchMovie(id: Long)
+DELETE        /app/movies/:id                                    controllers.MovieController.deleteMovie(id: Long)
 
 
 

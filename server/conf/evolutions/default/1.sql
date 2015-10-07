@@ -15,6 +15,7 @@ create table movie (
   id                        bigint not null,
   name                      varchar(255) not null,
   thumbnail                 varchar(255),
+  overview                  varchar(65535),
   constraint uq_movie_name unique (name),
   constraint pk_movie primary key (id))
 ;

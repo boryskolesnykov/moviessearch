@@ -38,13 +38,17 @@ angular
         templateUrl: 'views/dashboard.html',
         controller: 'DashboardCtrl'
       })
-      .when('favourite-list/create', {
+      .when('/favourite-list/create', {
         templateUrl: 'views/newFavouriteList.html',
         controller: 'FavListCtrl'
       })
-      .when('favourite-list/list', {
+      .when('/favourite-list/list', {
         templateUrl: 'views/allFavouriteLists.html',
         controller: 'FavListCtrl'
+      })
+      .when('/favourite-list/list/:id', {
+        templateUrl: 'views/movies.html',
+        controller: 'MovieCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-6 col-md-5" ng-repeat="movie in movies">
+        <div class="thumbnail">
+            <!-- [DRAFT] little hack... -->
+            <img src="{{ movie.thumbnailHref }}" alt="[{{ movie.name }}]">
+            <div class="caption">
+                <h3>{{ movie.name }}</h3>
+                <p>{{ movie.overview }}</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+        </div>
+    </div>
+</div>

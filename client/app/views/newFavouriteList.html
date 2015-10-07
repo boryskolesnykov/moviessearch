@@ -1,1 +1,17 @@
-<p>This is the newFavouriteList view.</p>
+<form name="newFavListForm" ng-submit="createNewFavList()" novalidate>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name" class="form-control" type="text" id="name"
+               placeholder="Favourite List name..." ng-model="favListName" />
+    </div>
+    <div class="form-group">
+        <div class="check-box">
+            <label>
+                Default:
+                <input name="is-default" type="checkbox" id="is-default"
+                       ng-model="isDefault"/>
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

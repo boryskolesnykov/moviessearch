@@ -1,1 +1,4 @@
-<p>This is the allFavouriteLists view.</p>
+<div class="list-group">
+    <button type="button" class="list-group-item" ng-repeat="favList in favListsSet"
+            ng-click="openFavList(favList.id)">{{ favList.name }}</button>
+</div>
